@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                <h4 class="mb-sm-0 font-size-18">Historial</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Tabla -->
+                    <table id="tabla-servicios" class="table table-bordered dt-responsive nowrap w-100">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="text-center align-middle">Fecha de busqueda</th>
+                                <th class="text-center align-middle">Dato completo</th>
+                                <th class="text-center align-middle">Query</th>
+                                <th class="text-center align-middle">Url Gif</th>
+                            </tr>
+                        </thead>
+                        @if (historyData.length > 0) {
+                        <tbody>
+                            @for (hd of historyData; track $index) {
+                            <tr>
+                                <td class="align-middle" style="width: 150px;">
+                                    {{ hd.dateSearch | date:'yyyy-MM-dd HH:mm:ss' }}
+                                </td>
+                                <td class="align-middle" style="width: 500px;">
+                                    {{ hd.factInfo }}
+                                </td>
+                                <td class="align-middle">
+                                    {{ hd.factQuery }}
+                                </td>
+                                <td class="align-middle">
+                                    {{ hd.urlGif }}
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                        } @else {
+                        <p>
+                            No se encontraron datos, revise la base de datos.
+                        </p>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
